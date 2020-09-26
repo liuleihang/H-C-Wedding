@@ -14,11 +14,10 @@
         </div>
         <div class="info" :animation="animationData">
             <div class="content">
-                <h1>Mr.裴 & Miss.李</h1>
-                <p>谨定于 2019年8月26日 （星期一）中午12:00</p>
-                <p>农历 柒月二十六 中午十二点整 举办婚礼</p>
-                <p>席设：河北省邯郸市五谷丰登生态园(复兴店)</p>
-                <p>地址：河北省邯郸市复兴区前进大街259号</p>
+                <h1>Mr.刘 & Miss.崔</h1>
+                <p>谨定于 2020年11月22日 （星期日）中午12:00</p>
+                <p>农历 十月初八 中午十二点整 举办婚礼</p>
+                <p>地址：河北省邯郸市永年区西阳城乡邓上村</p>
                 <image src="../../static/images/we.png" class="img_footer"/>
             </div>
         </div>
@@ -65,6 +64,7 @@ export default {
       }
     },
 
+    //获取首页图片和音乐地址
     getList () {
       const that = this
       wx.showNavigationBarLoading()
