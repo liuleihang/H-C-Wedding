@@ -23,14 +23,14 @@ export default {
   data () {
     return {
       // qqSdk: '',
-      latitude: 36.6283,
-      longitude: 114.449,
+      latitude: 36.841018,
+      longitude: 114.414685,
       scale: 12,
       markers: [{
         iconPath: '../../static/images/nav.png',
         id: 0,
-        latitude: 36.6283,
-        longitude: 114.449,
+        latitude: 36.841018,
+        longitude: 114.414685,
         width: 50,
         height: 50,
         scale: 12
@@ -50,7 +50,7 @@ export default {
 
     linkHe () {
       wx.makePhoneCall({
-        phoneNumber: '18033860886'
+        phoneNumber: '13146075762'
       })
     },
 

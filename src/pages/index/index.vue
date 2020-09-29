@@ -63,8 +63,7 @@ export default {
         tools.showToast('背景音乐已开启~')
       }
     },
-
-    //获取首页图片和音乐地址
+    // 获取首页图片和音乐地址
     getList () {
       const that = this
       wx.showNavigationBarLoading()
