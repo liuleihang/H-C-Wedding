@@ -12,7 +12,7 @@
             <image src="../../static/images/music_icon.png" class="musicImg"/>
             <image src="../../static/images/music_play.png" class="music_play playImg"/>
         </div>
-        <div class="info" :animation="animationData">
+        <!-- <div class="info" :animation="animationData">
             <div class="content">
                 <h1>Mr.刘 & Miss.崔</h1>
                 <p>谨定于 2020年11月22日 （星期日）中午12:00</p>
@@ -20,7 +20,7 @@
                 <p>地址：河北省邯郸市永年区西阳城乡邓上村</p>
                 <image src="../../static/images/we.png" class="img_footer"/>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       isPlay: true,
-      list: []
+      list: ['https://682d-h-c-wedding-6gut5apl80177456-1303325067.tcb.qcloud.la/index.png?sign=0ba1141921036af683a63f5fde852487&t=1602235217']
     }
   },
   onLoad () {
@@ -65,11 +65,11 @@ export default {
     },
     // 获取首页图片和音乐地址
     getList () {
-      const that = this
+      // const that = this
       wx.showNavigationBarLoading()
       cloud.get('weddingInvite').then((res) => {
         if (res.errMsg === 'collection.get:ok') {
-          that.list = res.data[0].banner
+          // that.list = res.data[0].banner
           let musicUrl = res.data[0].music
           audioCtx.src = musicUrl
           audioCtx.loop = true
@@ -85,7 +85,7 @@ export default {
     return {
       title: '送上您的祝福',
       path: '/pages/index/main',
-      imageUrl: '../../static/logo.jpg'
+      imageUrl: '../../static/logo.png'
     }
   }
 }

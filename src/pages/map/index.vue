@@ -12,7 +12,7 @@
                 <span>呼叫新娘</span>
             </div>
         </div>
-        <image class="footer" src="../../static/images/grren-flower-line.png"/>
+        <!-- <image class="footer" src="../../static/images/grren-flower-line.png"/> -->
     </div>
 </template>
 
@@ -23,17 +23,17 @@ export default {
   data () {
     return {
       // qqSdk: '',
-      latitude: 36.841018,
-      longitude: 114.414685,
-      scale: 12,
+      latitude: 36.835479,
+      longitude: 114.408542,
+      scale: 16,
       markers: [{
         iconPath: '../../static/images/nav.png',
         id: 0,
-        latitude: 36.841018,
-        longitude: 114.414685,
+        latitude: 36.835479,
+        longitude: 114.408542,
         width: 50,
         height: 50,
-        scale: 12
+        scale: 16
       }]
     }
   },

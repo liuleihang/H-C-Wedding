@@ -1,6 +1,6 @@
 <template>
     <div class="section">
-        <video id="myVideo" src="http://res.fc.fjqyx.com/5f89f4d623d14bde9e774ee7a36a06ed" :danmu-list="danmuList" enable-danmu danmu-btn controls poster="http://res.fc.fjqyx.com/d9a68f3657414875817c17badf59081e?imageView2/0/w/640/h/640"></video>
+        <video id="myVideo" src="" :danmu-list="danmuList" enable-danmu danmu-btn controls poster="http://res.fc.fjqyx.com/d9a68f3657414875817c17badf59081e?imageView2/0/w/640/h/640"></video>
         <div class="btn-area">
             <input @blur="bindInputBlur" placeholder="请输入临时弹幕，真实弹幕来自留言" placeholder-style="color:#bbb"/>
             <button @tap="bindSendDanmu">点击生成临时弹幕</button>

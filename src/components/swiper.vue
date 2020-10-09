@@ -12,7 +12,7 @@
                 </swiper-item>
             </block>
         </swiper>
-        <image v-if="isGif" class="img" src="../../static/images/save_the_date_pu.gif"/>
+        <!-- <image v-if="isGif" class="img" src="../../static/images/save_the_date_pu.gif"/> -->
     </div>
 </template>
 

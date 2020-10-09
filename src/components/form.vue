@@ -1,6 +1,6 @@
 <template>
     <div class="form">
-        <image class="head-img" src="../../static/images/green-flower.png"/>
+        <!-- <image class="head-img" src="../../static/images/green-flower.png"/> -->
         <p class="title">
             <span>* </span>姓名
         </p>

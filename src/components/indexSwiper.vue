@@ -4,7 +4,7 @@
             :autoplay="true"
             :circular="true"
             current=0
-            :indicator-dots="true"
+            :indicator-dots="false"
             :vertical="true"
         >
             <block v-for="(item, index) in list" :key="index">

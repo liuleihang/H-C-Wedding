@@ -1,6 +1,6 @@
 <template>
     <div class="greet">
-        <image class="head" src="https://666f-forguo-0979a1-1251886253.tcb.qcloud.la/wxapp/wedding/static/imgs/heart-animation.gif"/>
+        <!-- image class="head" src="https://666f-forguo-0979a1-1251886253.tcb.qcloud.la/wxapp/wedding/static/imgs/heart-animation.gif"/> -->
         <scroll-view scroll-y
             class="box"
             @scrolltolower="loadMore">
@@ -68,14 +68,14 @@ export default {
     getOpenId () {
       const that = this
       wx.cloud.callFunction({
-        name: 'login',
+        name: 'user',
         data: {}
       }).then(res => {
         that.openId = res.result.openid
         that.getIsExist()
       })
     },
-
+    // 查询用户是否存在
     getIsExist () {
       const that = this
       const db = wx.cloud.database()
@@ -122,12 +122,12 @@ export default {
       })
     }
   },
-  onShareAppMessage (res) {
+  onShareAppMessage (res) { // 监听分享
     // console.log(res)
     return {
       title: '送上您的祝福',
       path: '/pages/greet/main',
-      imageUrl: '../../static/logo.jpg'
+      imageUrl: '../../static/logo.png'
     }
   }
 }
