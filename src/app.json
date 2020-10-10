@@ -28,7 +28,7 @@
           "pagePath": "pages/photo/main",
           "iconPath": "static/images/2-1.png",
           "selectedIconPath": "static/images/2-2.png",
-          "text": "甜蜜相册"
+          "text": "美好时刻"
       },
       {
           "pagePath": "pages/map/main",
