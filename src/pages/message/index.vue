@@ -11,6 +11,7 @@
                     </div>
                     <p class="con">{{item.userMsg}}</p>
                 </div>
+                <image class="delete" v-show="showDele" :data-deleteid=item._id @tap="deleteMsg" src="../../static/images/delete.png"/>
             </div>
 
             <!-- loading -->
@@ -37,7 +38,7 @@
             <image src="../../static/images/video1.png"/>
         </div> -->
         <div class="form-dialog" @tap="lookList">
-            <image src="../../static/images/form3.png"/>
+            <image src="../../static/images/form.png"/>
         </div>
         <div class="video" v-show="isVideo">
             <h-video @closeVideo="closeVideo"></h-video>
@@ -103,6 +104,13 @@ export default {
     this.getMessageList()
   },
   methods: {
+    showDele () {
+      let that = this
+      if (that.openId === 'otf7V5DQTvg1UDj4iN9sAg1VZVAI') {
+        return true
+      }
+      return false
+    },
     toMessage (e) {
       const that = this
       if (e.target.errMsg === 'getUserInfo:ok') {
@@ -251,7 +259,36 @@ export default {
         }
       })
     },
-
+    deleteMsg (e) {
+      let that = this
+      const db = wx.cloud.database()
+      const msg = db.collection('msg')
+      console.log('deleteMsg >>> ', e)
+      let index = e.currentTarget.dataset.index
+      let _id = e.currentTarget.dataset.deleteid
+      let messageList = that.messageList
+      wx.showModal({
+        'content': '确认删除吗？',
+        'cancelColor': '#0076FF',
+        'confirmColor': '#0076FF',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            msg.doc(_id).remove({
+              success: function (res) {
+                console.log('deleteMsg success>>> ', res.data)
+                messageList.splice(index, 1)
+                that.setData({
+                  messageList: messageList
+                })
+              }
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    },
     toVideo () {
       const that = this
       that.isVideo = true
@@ -342,6 +379,11 @@ export default {
                     font-size 28rpx
                     white-space pre-wrap
                     width 100%
+            .delete
+              display flex
+              width 30rpx
+              height 30rpx
+              margin-left 20rpx
     .bottom
         height 140rpx
         position fixed
@@ -419,11 +461,11 @@ export default {
         position fixed
         right 10rpx
         top 220rpx
-        width 100rpx
-        height 100rpx
-        box-shadow 0 0 10rpx rgba(0, 0, 0, 0.1)
+        width 80rpx
+        height 90rpx
+        box-shadow 0 0 1rpx rgba(0, 0, 0, 0.1)
         background #fff
-        border-radius 20rpx
+        border-radius 10rpx
         image
             width 100%
             height 100%

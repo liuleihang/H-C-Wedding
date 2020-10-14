@@ -1,9 +1,12 @@
 <template>
     <div class="index">
       <image mode="" class="inv" src="../../static/images/inv.png"/>
+      <div class="bg-hc">
+          <image src="../../static/H+C.png" class="hc"/>
+      </div>
       <div class="bg-swiper" :animation="animationData">
           <!-- <index-swiper :list="list"></index-swiper> -->
-          <image src="../../static/index.png" class="logo"/>
+          <image src="../../static/rainbow-heart.png" class="logo"/>
       </div>
       
       <div class="bg_music" v-if="isPlay" @tap="audioPlay">
@@ -127,13 +130,25 @@ export default {
   .img
     width 100%
     height 100%
+  .bg-hc , .bg-swiper
+    position absolute;
+    display flex;
+    width 100%;
+    height 100%;
+    justify-content center;
+    align-items center;
+  .bg-hc
+    z-index 9
+    .hc
+      width 620rpx;
+      height 620rpx;
   .bg-swiper
-    display:flex;
-    height: 100%;
-    justify-content: center;
-    align-items:center;
+    z-index 8
     .logo
-      animation infoAnimation 2s linear infinite
+      opacity 0.3;
+      width 620rpx;
+      height 620rpx;
+      animation infoAnimation 1.5s linear infinite
   .inv
     position absolute
     top 50rpx
@@ -151,8 +166,8 @@ export default {
     justify-content flex-start
     align-items flex-start
     .musicImg
-      width 60rpx
-      height 60rpx
+      width 70rpx
+      height 70rpx
     .music_icon
       animation musicRotate 3s linear infinite
     .music_play

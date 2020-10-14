@@ -35,7 +35,8 @@ export default {
       longitude: 114.408542,
       scale: 13,
       markers: [{
-        iconPath: '../../static/index.png',
+        iconPath: '../../static/rainbow-heart.png',
+        alpha: 0.7,
         id: 0,
         latitude: 36.835479,
         longitude: 114.408542,

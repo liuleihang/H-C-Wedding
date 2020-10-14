@@ -32,6 +32,7 @@ export default {
     }
   },
   onLoad () {
+    console.log('greet >>> onLoad')
     const that = this
     that.getUserList()
   },
