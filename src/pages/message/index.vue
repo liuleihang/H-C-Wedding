@@ -263,9 +263,9 @@ export default {
       let that = this
       const db = wx.cloud.database()
       const msg = db.collection('msg')
-      console.log('deleteMsg >>> ', e)
       let index = e.currentTarget.dataset.index
       let _id = e.currentTarget.dataset.deleteid
+      console.log('deleteMsg >>> ', _id)
       let messageList = that.messageList
       wx.showModal({
         'content': '确认删除吗？',
