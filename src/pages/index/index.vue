@@ -19,7 +19,7 @@
       </div>
       <div class="info">
           <div class="content">
-              <h1>Mr.刘 & Miss.崔</h1>
+              <h1>Mr.Liu & Miss.Cui</h1>
               <p>谨定于 2020年11月22日 （星期日）中午12:00</p>
               <p>农历 十月初八 中午十二点整 举办婚礼</p>
               <p @click="doNavigation">地址：河北省邯郸市永年区西阳城乡邓上村</p>
@@ -95,7 +95,7 @@ export default {
     return {
       title: '送上您的祝福',
       path: '/pages/index/main',
-      imageUrl: '../../static/logo.png'
+      imageUrl: '../../static/logo-share.png'
     }
   }
 }
