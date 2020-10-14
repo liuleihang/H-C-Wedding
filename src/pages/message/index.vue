@@ -33,11 +33,11 @@
                 <button class="right" @tap="cancel">取消</button>
             </div>
         </div>
-        <div class="video-dialog" @tap="toVideo">
+        <!-- <div class="video-dialog" @tap="toVideo">
             <image src="../../static/images/video1.png"/>
-        </div>
+        </div> -->
         <div class="form-dialog" @tap="lookList">
-            <image src="../../static/images/form.png"/>
+            <image src="../../static/images/form3.png"/>
         </div>
         <div class="video" v-show="isVideo">
             <h-video @closeVideo="closeVideo"></h-video>
@@ -86,6 +86,15 @@ export default {
     that.isForm = false
     that.isFormlist = false
     that.getMessageList()
+  },
+  onPullDownRefresh: function (e) {
+    // 下拉刷新
+    this.page = 0
+    this.isMore = true
+    this.loadTxt = ''
+    this.messageList = []
+    this.getMessageList()
+    wx.stopPullDownRefresh() // 停止当前页面下拉刷新标志
   },
   onReachBottom (e) {
     if (!this.isMore) {
@@ -283,7 +292,6 @@ export default {
     width 100%
     overflow-y auto
     .box
-        background #F9E0D9
         min-height 100%
         width 100%
         .place
@@ -335,25 +343,30 @@ export default {
                     white-space pre-wrap
                     width 100%
     .bottom
+        height 140rpx
         position fixed
         bottom 0
         left 0
-        height 160rpx
-        background rgba(255, 255, 255, 0.75)
-        width 100%
+        background rgba(255, 255, 255, 0.5)
         display flex
         justify-content center
         align-items center
-        .left, .right
+        width 100%
+        .left
             height 80rpx
             line-height 80rpx
             font-size 28rpx
             width 300rpx
             color #fff
-            background #ED695D
-            margin 0 20rpx 0 0
+            background #2CA6F9
+            margin-right 20rpx
         .right
-            margin 0
+            height 80rpx
+            line-height 80rpx
+            font-size 28rpx
+            color #fff
+            width 300rpx
+            background #81d185
     .dialog
         position fixed
         bottom 0
@@ -385,10 +398,11 @@ export default {
                 font-size 28rpx
                 flex 2
                 color #fff
-                background #ED695D
+                background #2CA6F9
                 margin 0 20rpx 0 30rpx
             .right
                 flex 1
+                background #81d185
     .video-dialog
         position fixed
         right 10rpx
@@ -404,12 +418,12 @@ export default {
     .form-dialog
         position fixed
         right 10rpx
-        top 320rpx
+        top 220rpx
         width 100rpx
         height 100rpx
         box-shadow 0 0 10rpx rgba(0, 0, 0, 0.1)
         background #fff
-        border-radius 50rpx
+        border-radius 20rpx
         image
             width 100%
             height 100%
@@ -419,7 +433,7 @@ export default {
         bottom 0
         left 0
         right 0
-        background #fff
+        background #fde57f
         z-index 99
     .form-list
         background rgba(0, 0, 0, 0.5)

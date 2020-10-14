@@ -1,26 +1,28 @@
 <template>
     <div class="index">
-        <div class="bg-swiper">
-            <index-swiper :list="list"></index-swiper>
-        </div>
-        
-        <div class="bg_music" v-if="isPlay" @tap="audioPlay">
-            <image src="../../static/images/music_icon.png" class="musicImg music_icon"/>
-            <image src="../../static/images/music_play.png" class="music_play pauseImg"/>
-        </div>
-        <div class="bg_music" v-else @tap="audioPlay">
-            <image src="../../static/images/music_icon.png" class="musicImg"/>
-            <image src="../../static/images/music_play.png" class="music_play playImg"/>
-        </div>
-        <!-- <div class="info" :animation="animationData">
-            <div class="content">
-                <h1>Mr.刘 & Miss.崔</h1>
-                <p>谨定于 2020年11月22日 （星期日）中午12:00</p>
-                <p>农历 十月初八 中午十二点整 举办婚礼</p>
-                <p>地址：河北省邯郸市永年区西阳城乡邓上村</p>
-                <image src="../../static/images/we.png" class="img_footer"/>
-            </div>
-        </div> -->
+      <image mode="" class="inv" src="../../static/images/inv.png"/>
+      <div class="bg-swiper" :animation="animationData">
+          <!-- <index-swiper :list="list"></index-swiper> -->
+          <image src="../../static/index.png" class="logo"/>
+      </div>
+      
+      <div class="bg_music" v-if="isPlay" @tap="audioPlay">
+          <image src="../../static/images/music_icon.png" class="musicImg music_icon"/>
+          <!-- image src="../../static/images/music_play.png" class="music_play pauseImg"/> -->
+      </div>
+      <div class="bg_music" v-else @tap="audioPlay">
+          <image src="../../static/images/music_icon.png" class="musicImg"/>
+          <!-- <image src="../../static/images/music_play.png" class="music_play playImg"/> -->
+      </div>
+      <div class="info">
+          <div class="content">
+              <h1>Mr.刘 & Miss.崔</h1>
+              <p>谨定于 2020年11月22日 （星期日）中午12:00</p>
+              <p>农历 十月初八 中午十二点整 举办婚礼</p>
+              <p @click="doNavigation">地址：河北省邯郸市永年区西阳城乡邓上村</p>
+              <image src="../../static/images/we.png" class="img_footer"/>
+          </div>
+      </div>
     </div>
 </template>
 
@@ -37,7 +39,7 @@ export default {
   data () {
     return {
       isPlay: true,
-      list: ['https://682d-h-c-wedding-6gut5apl80177456-1303325067.tcb.qcloud.la/index.png?sign=0ba1141921036af683a63f5fde852487&t=1602235217']
+      list: ['../../static/hc.png']
     }
   },
   onLoad () {
@@ -77,6 +79,11 @@ export default {
           audioCtx.play()
           wx.hideNavigationBarLoading()
         }
+      })
+    },
+    doNavigation: function () {
+      wx.navigateTo({
+        url: '../map/nav/main'
       })
     }
   },
@@ -121,11 +128,15 @@ export default {
     width 100%
     height 100%
   .bg-swiper
-    width 100%
-    height 100%
+    display:flex;
+    height: 100%;
+    justify-content: center;
+    align-items:center;
+    .logo
+      animation infoAnimation 2s linear infinite
   .inv
     position absolute
-    top 20rpx
+    top 50rpx
     left 89rpx
     width 572rpx
     height 69rpx
@@ -133,7 +144,7 @@ export default {
   .bg_music
     position fixed
     right 0
-    top 20rpx
+    top 150rpx
     width 85rpx
     z-index 99
     display flex
@@ -162,7 +173,6 @@ export default {
     bottom 40rpx
     left 50rpx
     padding 10rpx
-    animation infoAnimation 12s linear infinite
     .content
       width 626rpx
       border 1rpx solid #000

@@ -1,3 +1,5 @@
 {
-    "navigationBarTitleText": "留言评论"
+    "navigationBarTitleText": "留言评论",
+    "enablePullDownRefresh":true,
+    "onReachBottomDistance":100
 }

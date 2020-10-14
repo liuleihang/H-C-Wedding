@@ -1,7 +1,14 @@
 <template>
     <div class="map">
         <image mode="aspectFit" class="head-img" src="../../static/images/t1.png"/>
-        <map class="content" id="map" :longitude="longitude" :latitude="latitude" show-location="true" :markers="markers" :scale="scale" @tap="toNav"></map>
+        <map class="content" id="map" 
+          :longitude="longitude" 
+          :latitude="latitude" 
+          show-location="true" 
+          :markers="markers" 
+          :scale="scale" 
+          @markertap="getLoc"
+        ></map> 
         <div class="call">
             <div class="left" @tap="linkHe">
                 <image src="../../static/images/he.png"/>
@@ -17,7 +24,8 @@
 </template>
 
 <script>
-// import QQMap from 'common/js/qqmap-wx-jssdk.js'
+/* import QQMapWX from 'common/js/qqmap-wx-jssdk.js'
+let qqmapsdk */
 export default {
   name: 'Map',
   data () {
@@ -25,29 +33,54 @@ export default {
       // qqSdk: '',
       latitude: 36.835479,
       longitude: 114.408542,
-      scale: 16,
+      scale: 13,
       markers: [{
-        iconPath: '../../static/images/nav.png',
+        iconPath: '../../static/index.png',
         id: 0,
         latitude: 36.835479,
         longitude: 114.408542,
         width: 50,
         height: 50,
-        scale: 16
+        scale: 13
       }]
     }
   },
-
+  onReady: function (e) {
+    // 使用 wx.createMapContext 获取 map 上下文
+    this.mapCtx = wx.createMapContext('map')
+  },
+  onLoad: function () {
+    // 实例化API核心类
+    /* qqmapsdk = new QQMapWX({
+      key: '7UKBZ-2DXK6-LQFSJ-EDPUW-CXSXJ-VBBWC'
+    }) */
+    // this.getLoc()
+  },
   methods: {
-    toNav () {
+    getLoc () {
       let that = this
-      wx.openLocation({
-        latitude: that.latitude,
-        longitude: that.longitude,
-        scale: that.scale
+      wx.getLocation({
+        type: 'gcj02', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+        success: function (res) {
+          console.log('location:', res)
+          wx.openLocation({
+            latitude: parseFloat(that.latitude),
+            longitude: parseFloat(that.longitude),
+            address: that.location,
+            scale: that.scale
+          })
+        },
+        cancel: function (res) {
+          console.log('地图定位失败')
+        }
       })
     },
-
+    clickMark () {
+      console.log('clickMark >>> ')
+      wx.navigateTo({
+        url: 'nav/main'
+      })
+    },
     linkHe () {
       wx.makePhoneCall({
         phoneNumber: '13146075762'
@@ -56,7 +89,7 @@ export default {
 
     linkShe () {
       wx.makePhoneCall({
-        phoneNumber: '18033860886'
+        phoneNumber: '15612099581'
       })
     }
   }
@@ -66,16 +99,17 @@ export default {
 <style lang="stylus" scoped>
 .map
     height 100%
-    background #fff
     .head-img
       width 100%
       height 180rpx
-      margin-bottom 50rpx
+      margin-top 30rpx
+      margin-bottom 30rpx
     .content
       width 690rpx
       margin-left 30rpx
-      height 600rpx
-      margin-bottom 30rpx
+      height 700rpx
+      margin-top 50rpx
+      margin-bottom 50rpx
       border-radius 16rpx
     .call
       display flex
@@ -90,8 +124,8 @@ export default {
         justify-content center
         align-items center
         image
-          height 64rpx
-          width 64rpx
+          height 80rpx
+          width 80rpx
         span
           height 50rpx
           line-height 50rpx

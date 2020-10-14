@@ -1,6 +1,6 @@
 <template>
     <div class="greet">
-        <!-- image class="head" src="https://666f-forguo-0979a1-1251886253.tcb.qcloud.la/wxapp/wedding/static/imgs/heart-animation.gif"/> -->
+        <!-- <image class="head" src="../../static/images/heart-animation.gif"/> -->
         <scroll-view scroll-y
             class="box"
             @scrolltolower="loadMore">
@@ -126,8 +126,8 @@ export default {
     // console.log(res)
     return {
       title: '送上您的祝福',
-      path: '/pages/greet/main',
-      imageUrl: '../../static/logo.png'
+      path: '/pages/index/main',
+      imageUrl: '../../static/logo-share.png'
     }
   }
 }
@@ -142,10 +142,11 @@ export default {
         width 200rpx
         margin 0 auto
     .box
-        height 600rpx
+        height 800rpx
         width 690rpx
         margin 50rpx auto
         margin-left 30rpx
+        background #fff
         border-radius 16rpx
         box-shadow 0 0 10rpx rgba(0, 0, 0, 0.1)
         display flex
@@ -190,7 +191,7 @@ export default {
             font-size 28rpx
             width 300rpx
             color #fff
-            background #E62C6B
+            background #2CA6F9
             margin-right 20rpx
         .right
             height 80rpx
@@ -198,7 +199,7 @@ export default {
             font-size 28rpx
             color #fff
             width 300rpx
-            background #2CA6F9
+            background #81d185
     .count
         height 60rpx
         line-height 60rpx

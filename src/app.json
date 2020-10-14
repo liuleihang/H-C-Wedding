@@ -3,18 +3,19 @@
     "pages/index/main",
     "pages/photo/main",
     "pages/map/main",
+    "pages/map/nav/main",
     "pages/greet/main",
     "pages/message/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "婚礼邀请函",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#ccc",
-    "selectedColor": "#ff4c91",
+    "selectedColor": "#fde57f",
     "borderStyle": "white",
     "backgroundColor": "#ffffff",
     "list": [
@@ -51,5 +52,10 @@
     ]
   },
   "requiredBackgroundModes": ["audio"],
-  "cloud": true
+  "cloud": true,
+  "permission": {
+    "scope.userLocation": {
+    "desc": "你的位置信息将用于导航信息展示"
+    }
+  }
 }

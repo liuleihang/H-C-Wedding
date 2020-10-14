@@ -42,7 +42,7 @@ export default {
 <style lang="stylus" scoped>
 .formlist
     position absolute
-    top 20rpx
+    top 25rpx
     width 690rpx
     height 85%
     margin-left 30rpx
@@ -58,7 +58,7 @@ export default {
     .item
         background #fff
         position relative
-        margin-bottom 16rpx
+        margin-bottom 25rpx
         border-radius 16rpx
         .item-top
             height 80rpx

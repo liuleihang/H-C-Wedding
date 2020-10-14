@@ -174,8 +174,9 @@ export default {
             font-size 28rpx
             flex 2
             color #fff
-            background #ED695D
+            background #2CA6F9
             margin 0 20rpx 0 30rpx
         .right
             flex 1
+            background #81d185
 </style>

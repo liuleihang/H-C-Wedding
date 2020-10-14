@@ -48,6 +48,7 @@ export default {
 page
     height 100%
     -webkit-overflow-scrolling: touch;
+    background #fde57f
 image
     display block
 
